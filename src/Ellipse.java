@@ -2,11 +2,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Ellipse {
-    private int SemiAxisX; //attention à modifier le nom des variables (voir page 3)
-    private int SemiAxisY;
-    private Color c;
+    protected int SemiAxisX;
+    protected int SemiAxisY;
+    protected Color c;
 
-    public Ellipse(){
+    public Ellipse(int semiAxisX, int semiAxisY){
         SemiAxisX = 0;
         SemiAxisY = 0;
     }
@@ -15,22 +15,6 @@ public class Ellipse {
         this.SemiAxisX = px;
         this.SemiAxisY = py;
         this.c = c;
-    }
-
-    public void setLength(int length) {
-        this.SemiAxisX = length;
-    }
-
-    public void setWidth(int width) {
-        this.SemiAxisY = width;
-    }
-
-    public int getLength() {
-        return SemiAxisX;
-    }
-
-    public int getWidth() {
-        return SemiAxisY;
     }
 
     public int getPerimeter(int length, int width){
@@ -44,6 +28,14 @@ public class Ellipse {
     public void setBoundingBox (int heightBB, int widthBB){
         this.SemiAxisX=heightBB;
         this.SemiAxisY=widthBB;
+    }
+
+    public void setSemiAxisX(int semiAxisX) {
+        SemiAxisX = semiAxisX;
+    }
+
+    public void setSemiAxisY(int semiAxisY) {
+        SemiAxisY = semiAxisY;
     }
 
     public void draw (Graphics g){

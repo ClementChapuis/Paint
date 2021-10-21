@@ -11,17 +11,6 @@ public class Rectangle extends Figure{
         this.length = 0;
     }
 
-    @Override
-    public int getPerimetre() {
-        return 0;
-    }
-
-    @Override
-    public int getSurface() {
-        return 0;
-    }
-
-
     public Rectangle(int l, int w) {
         super(new Point());
         length = l;
@@ -34,12 +23,14 @@ public class Rectangle extends Figure{
         this.width = 0;
     }
 
-    public void setLength(int length) {
-        this.length = length;
+    @Override
+    public int getPerimetre() {
+        return 2*length+2*width;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
+    @Override
+    public int getSurface() {
+        return length*width;
     }
 
     public int getLength() {
@@ -50,12 +41,12 @@ public class Rectangle extends Figure{
         return width;
     }
 
-    public int getPerimeter(int length, int width){
-        return 2*length+2*width;
+    public void setLength(int length) {
+        this.length = length;
     }
 
-    public int getSurface(int length, int width){
-        return length*width;
+    public void setWidth(int width) {
+        this.width = width;
     }
 
     public void setBoundingBox (int heightBB, int widthBB){
@@ -66,6 +57,4 @@ public class Rectangle extends Figure{
     public void draw (Graphics g){
 
     }
-
-
 }

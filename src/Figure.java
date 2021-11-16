@@ -9,7 +9,7 @@ public abstract class Figure {
         p=p1;
     }
 
-    public Figure(Color c, Point p) {
+    public Figure(Point p, Color c) {
         this.c = c;
         this.p = p;
     }
@@ -22,8 +22,10 @@ public abstract class Figure {
                 '}';
     }
 
-    public abstract int getPerimetre();
-    public abstract int getSurface();
+    public abstract int getPerimeter(int length, int width);
+
+    public abstract int getSurface(int length, int width);
+
     public abstract void setBoundingBox (int heightBB, int widthBB);
     public abstract void draw (Graphics g);
 }

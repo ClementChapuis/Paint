@@ -1,9 +1,9 @@
 import java.awt.*;
 
-public class Square extends Rectangle {
+public class Square extends MyRectangle {
 
-    public Square(int length){
-        super(length, length);
+    public Square(int side){
+        super(side, side);
     }
 
     public Square (int px, int py, Color c){
@@ -12,16 +12,18 @@ public class Square extends Rectangle {
 
     public void setBoundingBox (int heightBB, int widthBB){
         this.length=heightBB;
-        this.width=widthBB;
+        this.width=heightBB;
     }
 
     @Override
-    public void setLength(int length) {
-        super.setLength(length);
+    public void setLength(int side) {
+        super.length = side;
+        super.width = side;
     }
 
     @Override
-    public void setWidth(int width) {
-        super.setWidth(width);
+    public void setWidth(int side) {
+        super.length = side;
+        super.width = side;
     }
 }

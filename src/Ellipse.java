@@ -1,26 +1,34 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Ellipse {
+public class Ellipse extends Figure {
     protected int SemiAxisX;
     protected int SemiAxisY;
-    protected Color c;
 
-    public Ellipse(int semiAxisX, int semiAxisY){
-        SemiAxisX = 0;
-        SemiAxisY = 0;
+    public Ellipse(Point p){
+        super (p);
+        this.SemiAxisX = 0;
+        this.SemiAxisY = 0;
     }
 
-    public Ellipse(int px, int py, Color c) {
-        this.SemiAxisX = px;
-        this.SemiAxisY = py;
-        this.c = c;
+    public Ellipse(int ga, int pa) {
+        super(new Point());
+        SemiAxisX = ga;
+        SemiAxisY = pa;
     }
 
+    public Ellipse (int px, int py, Color c){
+        super(new Point(px, py), c);
+        this.SemiAxisX = 0;
+        this.SemiAxisY = 0;
+    }
+
+    @Override
     public int getPerimeter(int length, int width){
         return (int) (Math.PI*length*width);
     }
 
+    @Override
     public int getSurface(int length, int width){
         return (int) (2*Math.PI*Math.sqrt(((length)^2+(width)^2)/2));
     }
@@ -39,6 +47,15 @@ public class Ellipse {
     }
 
     public void draw (Graphics g){
+        g.setColor(this.c);
+        g.fillOval(p.getX(), p.getY(), this.SemiAxisX, this.SemiAxisY);
+    }
 
+    public int getSemiAxisX() {
+        return SemiAxisX;
+    }
+
+    public int getSemiAxisY() {
+        return SemiAxisY;
     }
 }

@@ -1,35 +1,35 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Rectangle extends Figure{
+public class MyRectangle extends Figure{
     protected int length;
     protected int width;
-    protected Color c;
 
-    public Rectangle(Point p){
+    public MyRectangle(Point p){
         super (p);
         this.length = 0;
+        this.width = 0;
     }
 
-    public Rectangle(int l, int w) {
+    public MyRectangle(int l, int w) {
         super(new Point());
         length = l;
         width = w;
     }
 
-    public Rectangle(int px, int py, Color c) {
-        super(c, new Point(px,py));
+    public MyRectangle(int px, int py, Color c) {
+        super(new Point(px, py), c);
         this.length = 0;
         this.width = 0;
     }
 
     @Override
-    public int getPerimetre() {
+    public int getPerimeter(int length, int width) {
         return 2*length+2*width;
     }
 
     @Override
-    public int getSurface() {
+    public int getSurface(int length, int width) {
         return length*width;
     }
 
@@ -55,6 +55,7 @@ public class Rectangle extends Figure{
     }
 
     public void draw (Graphics g){
-
+        g.setColor(this.c);
+        g.fillRect(p.getX(), p.getY(), this.length, this.width);
     }
 }

@@ -1,3 +1,4 @@
+    /* Imports */
 import javax.swing.*;
 import java.awt.* ;
 import java.awt.event.ActionEvent;
@@ -12,10 +13,13 @@ public class Window extends JFrame implements ActionListener {
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
+        /* Panel creation */
         Container contentPanel = this.getContentPane();
 
+            /* Menu bar creation */
         JMenuBar m = new JMenuBar();
+
+                /* Item creation */
         JMenu menu1 = new JMenu("File");
         JMenuItem neww = new JMenuItem("New");
         JMenuItem open = new JMenuItem("Open");

@@ -1,10 +1,30 @@
+    /* Imports */
 import java.awt.Color;
 import java.awt.Graphics;
 
 public class MyRectangle extends Figure{
+    /* Variables */
     protected int length;
     protected int width;
 
+    /* Getters & setters */
+    public int getLength() {
+        return length;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    /* Constructors */
     public MyRectangle(Point p){
         super (p);
         this.length = 0;
@@ -23,6 +43,8 @@ public class MyRectangle extends Figure{
         this.width = 0;
     }
 
+    /* Methods */
+
     @Override
     public int getPerimeter(int length, int width) {
         return 2*length+2*width;
@@ -31,22 +53,6 @@ public class MyRectangle extends Figure{
     @Override
     public int getSurface(int length, int width) {
         return length*width;
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
     }
 
     public void setBoundingBox (int heightBB, int widthBB){

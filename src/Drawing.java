@@ -1,3 +1,4 @@
+    /* Imports */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseListener;
@@ -6,12 +7,20 @@ import java.util.ArrayList;
 import java.awt.event.*;
 
 public class Drawing extends JPanel implements MouseListener, MouseMotionListener {
+    /* Variables */
     protected Color c;
     protected ArrayList<Figure> list;
     protected String nameFigure;
     protected int x;
     protected int y;
 
+    /* Getters & setters */
+    public void setColor(Color c) {this.c = c;}
+    public void setNameFigure(String nameFigure) {this.nameFigure = nameFigure;}
+    public void setList(ArrayList<Figure> l){this.list = l;}
+    public ArrayList<Figure> getList() {return this.list;}
+
+    /* Constructors */
     public Drawing(){
         super();
         this.c = Color.black;
@@ -21,6 +30,7 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
         this.addMouseMotionListener(this);
     }
 
+    /* Methods */
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -28,14 +38,6 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
         for(Figure f : list){
             f.draw(g);
         }
-    }
-
-    public void setColor(Color c) {this.c = c;}
-
-    public void setNameFigure(String nameFigure) {this.nameFigure = nameFigure;}
-
-    public void setList(ArrayList<Figure> l){
-        this.list = l;
     }
 
     @Override
@@ -71,14 +73,8 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
     public void mouseMoved(MouseEvent e) {}
     public void mouseClicked(MouseEvent e){}
 
-
     public void erase() {
         list.clear();
         super.paintComponent(this.getGraphics());
     }
-
-    public ArrayList<Figure> getList() {
-        return this.list;
-    }
-
 }

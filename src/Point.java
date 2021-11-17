@@ -1,7 +1,18 @@
 public class Point {
+    /* Variables */
     private int X;
     private int Y;
 
+    /* Getters & Setters */
+    public int getX() {
+        return X;
+    }
+
+    public int getY() {
+        return Y;
+    }
+
+    /* Constructors */
     public Point () {
         X = Y = 0;
     }
@@ -11,14 +22,7 @@ public class Point {
         Y = b;
     }
 
-    public int getX() {
-        return X;
-    }
-
-    public int getY() {
-        return Y;
-    }
-
+    /* Methods */
     @Override
     public String toString() {
         return "Point{" +

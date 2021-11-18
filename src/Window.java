@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 public class Window extends JFrame implements ActionListener {
     static protected Drawing d = new Drawing();
 
+    /* Window creation */
     public Window(String Title, int x, int y) {
         super(Title);
         this.setSize(x, y);
@@ -15,11 +16,9 @@ public class Window extends JFrame implements ActionListener {
 
         /* Panel creation */
         Container contentPanel = this.getContentPane();
-
             /* Menu bar creation */
         JMenuBar m = new JMenuBar();
-
-                /* Item creation */
+                /* Item "File" creation */
         JMenu menu1 = new JMenu("File");
         JMenuItem neww = new JMenuItem("New");
         JMenuItem open = new JMenuItem("Open");
@@ -29,18 +28,22 @@ public class Window extends JFrame implements ActionListener {
         menu1.add(open);
         menu1.add(save);
         menu1.add(quit);
-        m.add(menu1);
-        JMenu menu2 = new JMenu("A propos");
-        JMenuItem autors = new JMenuItem("Auteurs");
-        menu2.add(autors);
-        m.add(menu2);
-        contentPanel.add(m,"North");
         open.addActionListener(this);
         save.addActionListener(this);
         neww.addActionListener(this);
         quit.addActionListener(this);
+        m.add(menu1);
+                /* Item "A propos" creation */
+        JMenu menu2 = new JMenu("A propos");
+        JMenuItem autors = new JMenuItem("Auteurs");
+        menu2.add(autors);
         autors.addActionListener(this);
-
+        m.add(menu2);
+        contentPanel.add(m,"North");
+            /* Down panel creation */
+        JPanel DownPanel=new JPanel();
+        DownPanel.setLayout(new GridLayout(1,2));
+                /* Down left panel creation */
         JPanel DownLeftPanel=new JPanel();
         JButton BlackButton = new JButton("Noir");
         BlackButton.setBackground(Color.black);
@@ -78,7 +81,7 @@ public class Window extends JFrame implements ActionListener {
         PinkButton.addActionListener(this);
         MagentaButton.addActionListener(this);
         OrangeButton.addActionListener(this);
-
+                /* Down right panel creation */
         JPanel DownRightPanel=new JPanel();
         JButton EllipseButton = new JButton("Ellipse");
         EllipseButton.setBackground(Color.lightGray);
@@ -99,8 +102,6 @@ public class Window extends JFrame implements ActionListener {
         RectangleButton.addActionListener(this);
         SquareButton.addActionListener(this);
 
-        JPanel DownPanel=new JPanel();
-        DownPanel.setLayout(new GridLayout(1,2));
         DownPanel.add(DownLeftPanel);
         DownPanel.add(DownRightPanel);
 
@@ -112,10 +113,7 @@ public class Window extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
-    public static void main(String args[]){
-        Window win=new Window("Paint it black",800,600);
-    }
-
+    /* Commands */
     public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
 
@@ -170,5 +168,10 @@ public class Window extends JFrame implements ActionListener {
                 System.out.println("Action : " + cmd);
                 break;
         }
+    }
+
+    /* Execution */
+    public static void main(String args[]){
+        Window win=new Window("Paint it black",800,600);
     }
 }

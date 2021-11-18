@@ -63,5 +63,8 @@ public class MyRectangle extends Figure{
     public void draw (Graphics g){
         g.setColor(this.c);
         g.fillRect(p.getX(), p.getY(), this.length, this.width);
+        g.fillRect(p.getX(), p.getY(), -this.length, -this.width);
+        g.fillRect(p.getX(), p.getY(), -this.length, this.width);
+        g.fillRect(p.getX(), p.getY(), this.length, -this.width);
     }
 }
